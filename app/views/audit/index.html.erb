@@ -1,0 +1,29 @@
+<h1 class="page-header">Log viewer</h1>
+
+<p>Select an audit log to view</p>
+
+<% if !@sources.count == 0 %>
+  <div class="alert alert-info" role="alert"><strong>Heads up!</strong> There are no source's logged :trollface:</div>
+<% else %>
+  <table class="table table-hover sources">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @sources.each do |source| %>
+        <tr data-source="<%= source %>">
+          <td>
+            <%= source %>
+          </td>
+        <% end %>
+    </tbody>
+
+  </table>
+
+<% end %>
+
+<%= console %>
