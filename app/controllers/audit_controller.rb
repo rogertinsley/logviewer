@@ -18,11 +18,10 @@ class AuditController < ApplicationController
     when "TransactionMessage"
       show_transaction_message
     when "HttpContextExceptionMessage"
-      show_http_context_exception_message
-    when "ExceptionMessage"
+	when "ExceptionMessage"
       show_exception_message
-	when "Email"
-	  show_email_message
+	when "StringMessage"
+	  show_string_message
 	end
   end
 
@@ -35,12 +34,18 @@ class AuditController < ApplicationController
   end
 
   def show_http_context_exception_message
+    @message = Message.find_by(MessageID: params[:MessageID])
+    render "httpcontextexceptionmessage"
   end
 
   def show_exception_message
+    @message = Message.find_by(MessageID: params[:MessageID])
+    render "exceptionmessage"
   end
   
-  def show_email_message
-  end
+  def show_string_message
+    @message = Message.find_by(MessageID: params[:MessageID])
+    render "stringmessage"
+  end	
 
 end
