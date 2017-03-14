@@ -21,7 +21,9 @@ class AuditController < ApplicationController
       show_http_context_exception_message
     when "ExceptionMessage"
       show_exception_message
-    end
+	when "Email"
+	  show_email_message
+	end
   end
 
   def show_audit_message
@@ -36,6 +38,9 @@ class AuditController < ApplicationController
   end
 
   def show_exception_message
+  end
+  
+  def show_email_message
   end
 
 end
