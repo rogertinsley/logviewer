@@ -14,46 +14,17 @@ class AuditController < ApplicationController
   end
 
   def parameters
+    @parameters = Parameter.where(MessageID: params[:MessageID])
     case request.params[:MessageType]
-      when "AuditMessage"
-        show_audit_message
-      when "TransactionMessage"
-        show_transaction_message
-      when "HttpContextExceptionMessage"
-        show_http_context_exception_message
-    	when "ExceptionMessage"
-        show_exception_message
-    	when "StringMessage"
-        show_string_message
+      when "AuditMessage"                render 'auditmessage'
+      when "TransactionMessage"          render 'transactionmessag'
+      when "HttpContextExceptionMessage" render 'httpcontextexceptionmessage'
+    	when "ExceptionMessage"            render 'exceptionmessage'
+    	when "StringMessage"               render 'stringmessage'
   	end
   end
 
   private
-
-  def show_audit_message
-   @parameters = Parameter.where(MessageID: params[:MessageID])
-   render 'auditmessage'
-  end
-
-  def show_transaction_message
-    @message = Message.find_by(MessageID: params[:MessageID])
-    render 'transactionmessage'
-  end
-
-  def show_http_context_exception_message
-    @message = Message.find_by(MessageID: params[:MessageID])
-    render "httpcontextexceptionmessage"
-  end
-
-  def show_exception_message
-    @message = Message.find_by(MessageID: params[:MessageID])
-    render "exceptionmessage"
-  end
-
-  def show_string_message
-    @message = Message.find_by(MessageID: params[:MessageID])
-    render "stringmessage"
-  end
 
   def set_cache
     expires_in 1.minutes, :public => true
