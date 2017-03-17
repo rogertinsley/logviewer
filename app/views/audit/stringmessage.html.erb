@@ -1,12 +1,10 @@
-<h1 class="page-header"><%= source_application %></h1>
+<% breadcrumb :message %>
 
-<h2><%= message_type %></h2>
-  
   <dl>
     <dd>Message</dd>
     <dt><%= @message.Message %></dt>
   </dl>
-  
+
   <%= link_to "Back", :back, :class => "btn btn-default" %>
 
   <%= console %>

@@ -1,6 +1,4 @@
-<h1 class="page-header"><%= source_application %></h1>
-
-<h2><%= message_type %></h2>
+<% breadcrumb :message %>
 
   <table class="table table-hover parameters">
     <thead>
@@ -23,7 +21,7 @@
     </tbody>
 
   </table>
-  
+
   <%= link_to "Back", :back, :class => "btn btn-default" %>
 
   <%= console %>

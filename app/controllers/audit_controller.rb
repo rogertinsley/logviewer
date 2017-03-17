@@ -1,5 +1,7 @@
 class AuditController < ApplicationController
 
+  before_action :set_cache
+
   def index
     @sources = Message.distinct.pluck(:SourceApplication)
   end
@@ -12,40 +14,20 @@ class AuditController < ApplicationController
   end
 
   def parameters
+    @parameters = Parameter.where(MessageID: params[:MessageID])
     case request.params[:MessageType]
-    when "AuditMessage"
-      show_audit_message
-    when "TransactionMessage"
-      show_transaction_message
-    when "HttpContextExceptionMessage"
-	when "ExceptionMessage"
-      show_exception_message
-	when "StringMessage"
-	  show_string_message
-	end
+      when "AuditMessage"                render 'auditmessage'
+      when "TransactionMessage"          render 'transactionmessag'
+      when "HttpContextExceptionMessage" render 'httpcontextexceptionmessage'
+    	when "ExceptionMessage"            render 'exceptionmessage'
+    	when "StringMessage"               render 'stringmessage'
+  	end
   end
 
-  def show_audit_message
-   @parameters = Parameter.where(MessageID: params[:MessageID])
-   render 'auditmessage'
-  end
+  private
 
-  def show_transaction_message
+  def set_cache
+    expires_in 1.minutes, :public => true
   end
-
-  def show_http_context_exception_message
-    @message = Message.find_by(MessageID: params[:MessageID])
-    render "httpcontextexceptionmessage"
-  end
-
-  def show_exception_message
-    @message = Message.find_by(MessageID: params[:MessageID])
-    render "exceptionmessage"
-  end
-  
-  def show_string_message
-    @message = Message.find_by(MessageID: params[:MessageID])
-    render "stringmessage"
-  end	
 
 end
