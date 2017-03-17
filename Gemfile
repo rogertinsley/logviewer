@@ -16,6 +16,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'simple_form'
 gem 'will_paginate', '~> 3.1.0'
+gem "gretel"
 
 group :development, :test do
   gem 'byebug', platform: :mri

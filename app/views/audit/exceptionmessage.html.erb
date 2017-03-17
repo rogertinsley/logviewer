@@ -1,7 +1,5 @@
-<h1 class="page-header"><%= source_application %></h1>
+<% breadcrumb :message %>
 
-<h2><%= message_type %></h2>
-  
   <dl class="dl-horizontal">
     <dt>Message</dt><dd><%= @message.Message %></dd>
     <dt>ExceptionType</dt><dd><%= @message.ExceptionType %></dd>
@@ -9,9 +7,9 @@
 	<dt>ExceptionTargetSite</dt><dd><%= @message.ExceptionTargetSite %></dd>
 	<dt>ExceptionStackTrace</dt><dd><%= @message.ExceptionStackTrace %></dd>
 	<dt>ExceptionDetail</dt><dd><%= @message.ExceptionDetail %></dd>
-	
+
   </dl>
-  
+
   <%= link_to "Back", :back, :class => "btn btn-default" %>
 
   <%= console %>
