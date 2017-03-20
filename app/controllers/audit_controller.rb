@@ -14,6 +14,7 @@ class AuditController < ApplicationController
   end
 
   def parameters
+    @message = Message.find_by(MessageID: params[:MessageID])
     @parameters = Parameter.where(MessageID: params[:MessageID])
     case request.params[:MessageType]
       when "AuditMessage"
@@ -22,9 +23,9 @@ class AuditController < ApplicationController
         render "transactionmessag"
       when "HttpContextExceptionMessage"
         render "httpcontextexceptionmessage"
-    	when "ExceptionMessage"
+	  when "ExceptionMessage"
         render "exceptionmessage"
-    	when "StringMessage"
+      when "StringMessage"
         render "stringmessage"
   	end
   end
