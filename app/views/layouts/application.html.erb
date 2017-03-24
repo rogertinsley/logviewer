@@ -5,7 +5,7 @@
   <title>Civica Log Viewer</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="favicon.gif" />
+  <link rel="icon" href="/favicon.gif" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -22,11 +22,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-		<img class="navbar-brand" src="civica-logo.png"/> <span class="navbar-brand">Civica Log Viewer</span>
+		<img class="navbar-brand" src="/civica-logo.png"/> <span class="navbar-brand">Civica Log Viewer</span>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
 	    <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Home", { :controller => :audit, :action => :index }%></li>
 		</ul>
       </div>
     </div>
