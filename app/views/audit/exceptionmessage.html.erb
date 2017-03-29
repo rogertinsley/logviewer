@@ -1,7 +1,7 @@
 <% breadcrumb :message %>
 
   <dl class="dl-horizontal">
-  
+
     <dt>Message</dt><dd><%= @message.Message %></dd>
     <dt>ExceptionType</dt><dd><%= @message.ExceptionType %></dd>
 	<dt>ExceptionSource</dt><dd><%= @message.ExceptionSource %></dd>
@@ -12,5 +12,3 @@
   </dl>
 
   <%= link_to "Back", :back, :class => "btn btn-default" %>
-
-  <%= console %>
