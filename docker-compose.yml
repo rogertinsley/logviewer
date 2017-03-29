@@ -13,6 +13,7 @@ services:
       - "3000:3000"
     environment:
       - RAILS_ENV=development
+      - GITHUB_WEBHOOK_SECRET=${GITHUB_WEBHOOK_SECRET}
       - DB_NAME=${DB_NAME}
       - DB_HOST=${DB_HOST}
       - DB_USERNAME=${DB_USERNAME}

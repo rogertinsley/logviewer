@@ -12,6 +12,7 @@ services:
     environment:
       - RAILS_ENV=production
       - RAILS_SERVE_STATIC_FILES=true
+      - GITHUB_WEBHOOK_SECRET=${GITHUB_WEBHOOK_SECRET}
       - DB_NAME=${DB_NAME}
       - DB_HOST=${DB_HOST}
       - DB_USERNAME=${DB_USERNAME}
