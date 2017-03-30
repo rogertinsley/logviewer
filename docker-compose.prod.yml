@@ -12,9 +12,8 @@ services:
     environment:
       - RAILS_ENV=production
       - RAILS_SERVE_STATIC_FILES=true
-      - DB_NAME=${DB_NAME}
       - DB_HOST=${DB_HOST}
-      - DB_USERNAME=${DB_USERNAME}
-      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
       - DB_AZURE=${DB_AZURE}
       - SECRET_KEY_BASE=${SECRET_KEY_BASE}

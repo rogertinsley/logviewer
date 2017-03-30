@@ -13,8 +13,7 @@ services:
       - "3000:3000"
     environment:
       - RAILS_ENV=development
-      - DB_NAME=${DB_NAME}
       - DB_HOST=${DB_HOST}
-      - DB_USERNAME=${DB_USERNAME}
-      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
       - DB_AZURE=${DB_AZURE}
