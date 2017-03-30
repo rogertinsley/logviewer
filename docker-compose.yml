@@ -6,7 +6,7 @@ services:
   web:
     build:
       context: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/logviewer
     ports:
@@ -16,6 +16,6 @@ services:
       - GITHUB_WEBHOOK_SECRET=${GITHUB_WEBHOOK_SECRET}
       - DB_NAME=${DB_NAME}
       - DB_HOST=${DB_HOST}
-      - DB_USERNAME=${DB_USERNAME}
-      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
       - DB_AZURE=${DB_AZURE}
