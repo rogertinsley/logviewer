@@ -18,4 +18,5 @@ services:
       - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
       - DB_AZURE=${DB_AZURE}
+      - GH_TOKEN=${GH_TOKEN}
       - SECRET_KEY_BASE=${SECRET_KEY_BASE}

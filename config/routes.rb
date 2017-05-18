@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get "/audit" => "audit#index"
   get ":SourceApplication/show" => "audit#show", as: :messages
   get ":SourceApplication/message/:MessageID/parameters/:MessageType" => "audit#parameters"
+  resource :github_webhooks, only: :create, defaults: { formats: :json }
 end

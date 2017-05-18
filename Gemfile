@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'will_paginate', '~> 3.1.0'
 gem 'gretel'
 gem 'github_webhook', '~> 1.0.3'
+gem 'octokit'
 
 group :development, :test do
   gem 'byebug', platform: :mri
