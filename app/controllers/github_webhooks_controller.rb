@@ -17,6 +17,18 @@ class GithubWebhooksController < ActionController::Base
       
       # Set Status
       client.create_status "nidirect/lams", sha, 'success', { :target_url => "http://192.168.39.182:8081/", :context => "Exploratory Test", :description => "Exploratory Testing Completed" }
+
+      # Get stats
+      customer_source_application = "LamsCustomer-LAMS-#{pr_number}"
+      employee_source_application = "LamsEmployee-LAMS-#{pr_number}"
+
+      employee_messages_count = Message.where(SourceApplication: employee_source_application).count
+      customer_messages_count = Message.where(SourceApplication: customer_source_application).count
+      
+      # Reply with comment
+      body = "### Exploratory Test Statistics\r\n\r\n * Customer portal: #{customer_messages_count} log entries\r\n * Employee portal: #{employee_messages_count} log entries"
+      client.add_comment "nidirect/lams", pr_number, body
+
     end
   end
 
