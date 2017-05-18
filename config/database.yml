@@ -6,7 +6,7 @@
 #
 default: &default
   adapter: sqlserver
-  database: Logging 
+  database: <%= ENV['DB_NAME'] %> 
   host: <%= ENV['DB_HOST'] %>
   username: <%= ENV['DB_USER'] %>
   password: <%= ENV['DB_PASS'] %>
@@ -22,4 +22,3 @@ test:
 
 production:
   <<: *default
-

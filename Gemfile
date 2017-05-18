@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
 gem 'tiny_tds'
-gem 'activerecord-sqlserver-adapter', '~> 5.0', '>= 5.0.5'
+gem 'activerecord-sqlserver-adapter', '~> 5.0', '>= 5.0.7'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
@@ -15,7 +15,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'simple_form'
 gem 'will_paginate', '~> 3.1.0'
-gem "gretel"
+gem 'gretel'
+gem 'github_webhook', '~> 1.0.3'
+gem 'octokit'
 
 group :development, :test do
   gem 'byebug', platform: :mri

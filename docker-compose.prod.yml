@@ -5,15 +5,18 @@ services:
       args:
         - http_proxy
         - https_proxy
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     restart: always
     ports:
       - "8081:3000"
     environment:
       - RAILS_ENV=production
       - RAILS_SERVE_STATIC_FILES=true
+      - GITHUB_WEBHOOK_SECRET=${GITHUB_WEBHOOK_SECRET}
+      - DB_NAME=${DB_NAME}
       - DB_HOST=${DB_HOST}
       - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
       - DB_AZURE=${DB_AZURE}
+      - GH_TOKEN=${GH_TOKEN}
       - SECRET_KEY_BASE=${SECRET_KEY_BASE}
