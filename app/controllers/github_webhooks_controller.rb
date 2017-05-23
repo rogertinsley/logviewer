@@ -10,6 +10,7 @@ class GithubWebhooksController < ActionController::Base
       pr_number = payload['issue']['number']
 
       # Fetch Pull Request
+      client = Octokit::Client.new(:access_token => "#{ENV['GH_TOKEN']}")
       pull_request = client.pull_request "nidirect/lams", pr_number
       sha = pull_request['head']['sha']
       
