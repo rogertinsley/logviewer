@@ -6,19 +6,24 @@
 #
 default: &default
   adapter: sqlserver
-  database: <%= ENV['DB_NAME'] %> 
-  host: <%= ENV['DB_HOST'] %>
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASS'] %>
-  azure: <%= ENV['DB_AZURE'] %>
+  database: Logging
+  host: lams-test
+  username: sa
+  password: Pa$$w0rd
+  azure: false
   pool: 5
-  timeout: 5000
+  timeout: 15000
 
 development:
   <<: *default
 
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
 test:
   <<: *default
+  database: db/test.sqlite3
 
 production:
   <<: *default
+  database: db/production.sqlite3
