@@ -55,14 +55,14 @@ class GithubWebhooksController < ActionController::Base
 
     if (employee_messages_count > 0 && customer_messages_count > 0)
         # Set Status
-      client.create_status "nidirect/lams", sha, 'success', { :target_url => "http://192.168.39.182:8081/", :context => "Exploratory Test", :description => "Exploratory Testing Success" }
+      client.create_status "nidirect/lams", sha, 'success', { :target_url => "http://192.168.39.109:8081/", :context => "Exploratory Test", :description => "Exploratory Testing Success" }
 
       # Reply with comment
       body = "### Exploratory Test Statistics\r\n\r\n * Customer portal: #{customer_messages_count} log entries\r\n * Employee portal: #{employee_messages_count} log entries\r\n\r\n :heavy_check_mark: **Setting status to success**"
       client.add_comment "nidirect/lams", pr_number, body
     elsif
        # Set Status
-      client.create_status "nidirect/lams", sha, 'failure', { :target_url => "http://192.168.39.182:8081/", :context => "Exploratory Test", :description => "Exploratory Testing Failure" }
+      client.create_status "nidirect/lams", sha, 'failure', { :target_url => "http://192.168.39.109:8081/", :context => "Exploratory Test", :description => "Exploratory Testing Failure" }
 
       # Add label
       client.update_issue "nidirect/lams", pr_number, { :labels => ["1 - Work in progress"] } 
